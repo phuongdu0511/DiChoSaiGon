@@ -1,0 +1,106 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<WebShop.Models.TinDang>
+@{
+    ViewData["TiTle"] = "Blog - " + ViewBag.CurrentPage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageNext = PageCurrent + 1;
+}
+
+<main class="main-content">
+    <div class="breadcrumb-area breadcrumb-height" data-bg-image="~/assets/images/breadcrumb/bg/1-1-1920x373.jpg">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-item">
+                        <h2 class="breadcrumb-heading">Tin nổi bật</h2>
+                        <ul>
+                            <li>
+                                <a href="/">Home <i class="pe-7s-angle-right"></i></a>
+                            </li>
+                            <li>Tin nổi bật</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-area blog-column-2 section-space-y-axis-100">
+        <div class="container">
+            <div class="row">
+                @if (Model != null && Model.Count() > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        string url = $"/tin-tuc/{item.Alias}-{item.PostId}.html";
+                        <div class="col-md-6">
+                            <div class="blog-item">
+                                <div class="blog-img img-zoom-effect">
+                                    <a href="@url">
+                                        <img width="400" height="400" class="img-full" src="~/images/news/@item.Thumb" alt="@item.Title">
+                                    </a>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta text-dim-gray pb-3">
+                                        <ul>
+                                            <li class="date"><i class="fa fa-calendar-o me-2"></i>@item.CreatedDate.Value.ToShortDateString()</li>
+                                            <li>
+                                                <span class="comments me-3">
+                                                    <a href="javascript:void(0)">2 Comments</a>
+                                                </span>
+                                                <span class="link-share">
+                                                    <a href="javascript:void(0)">Share</a>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title mb-4">
+                                        <a href="@url">@item.Title</a>
+                                    </h5>
+                                    <p class="short-desc mb-5"></p>
+                                    <div class="button-wrap">
+                                        <a class="btn btn-custom-size lg-size btn-dark rounded-0" href="@url">Xem Thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                <div class="col-lg-12">
+                    <div class="pagination-area pt-10">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                @if (PageCurrent > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="/blogs.html?page=@(PageCurrent - 1)" aria-label="Previous">
+                                            <span class="fa fa-chevron-left"></span>
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="/blogs.html" aria-label="Previous">
+                                            <span class="fa fa-chevron-left"></span>
+                                        </a>
+                                    </li>
+                                }
+
+                                <li class="page-item active"><a class="page-link" href="/blogs.html?page=@PageCurrent">@PageCurrent</a></li>
+                                <li class="page-item"><a class="page-link" href="/blogs.html?page=@PageNext">@PageNext</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="/blogs.html?page=@PageNext" aria-label="Next">
+                                        <span class="fa fa-chevron-right"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

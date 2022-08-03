@@ -1,0 +1,20 @@
+﻿@model List<Product>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @item.ProductId
+            </td>
+            <td>
+                @item.ProductName
+            </td>
+            
+            <td>@item.Price.Value.ToString("#,##0") VNĐ</td>
+            
+            
+        </tr>
+    }
+}

@@ -1,0 +1,52 @@
+@model WebShop.Models.Account
+
+@{
+    ViewData["Title"] = "Tạo mới tài khoản quản trị";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card-body">
+    <h4>Tạo mới tài khoản quản trị</h4>
+    <div class="m-t-25" style="max-width: 700px">
+        <form asp-controller="AdminAccounts" asp-action="Create" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Họ và tên</label>
+                    <input type="text" class="form-control" asp-for="FullName" placeholder="Họ và tên">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Số điện thoại</label>
+                    <input type="text" class="form-control" asp-for="Phone" placeholder="Số điện thoại">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="text" class="form-control" asp-for="Email" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Mật khẩu</label>
+                    <input type="text" class="form-control" asp-for="Password" placeholder="Mật khẩu">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Quyền truy cập</label>
+                    <select class="form-control" asp-for="RoleId" asp-items="@ViewBag.QuyenTruyCap" required>
+                        <option value="0" disabled selected>Chọn quyền truy cập</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox">
+                    <input asp-for="Active" type="checkbox">
+                    <label for="Active">Active</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Tạo mới</button>
+        </form>
+    </div>
+    
+</div>

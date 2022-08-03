@@ -1,0 +1,74 @@
+﻿@model WebShop.ModelViews.MuaHangSuccessVM
+@{
+    ViewData["Title"] = "Mua hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+@section Styles{
+    <style type="text/css">
+        .nice-select .list {
+            border-radius: 0px;
+            overflow-y: auto;
+            overflow: hidden;
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+
+        .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+            color: red;
+            background: none;
+        }
+    </style>
+}
+
+
+
+
+<main class="main-content">
+    <div class="breadcrumb-area breadcrumb-height" data-bg-image="/assets/images/banner/2-1-1920x523.jpg">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-item">
+                        <h2 class="breadcrumb-heading">THÔNG TIN MUA HÀNG</h2>
+                        <ul>
+                            <li>
+                                <a href="/">Trang chủ <i class="pe-7s-angle-right"></i></a>
+                            </li>
+                            <li>THÔNG TIN MUA HÀNG</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-area section-space-y-axis-100">
+        <div class="container">
+            <form>
+                
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+
+                        <div class="checkbox-form">
+                            <h3>Đặt hàng thành công</h3>
+                            <p>Mã đơn hàng: #@Model.DonHangID</p>
+                            <p>Cảm ơn bạn đã đặt hàng</p>
+                            <br />
+                            <h3>THÔNG TIN ĐƠN HÀNG</h3>
+                            <p>Thông tin giao hàng</p>
+                            <p>Người nhận hàng: @Model.FullName</p>
+                            <p>Số điện thoại: @Model.Phone</p>
+                            <p>Địa chỉ: @Model.Address</p>
+                            <br />
+                            Để xem chi tiết đơn hàng vui lòng truy cập vào <a asp-controller="Accounts" asp-action="Dashboard"><strong>Tài khoản cá nhân.</strong></a> Cần hỗ trợ? Liên hệ với chúng tôi qua số điện thoại 0963102916
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <img src="/assets/images/thanh-cong.jpeg"/>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</main>

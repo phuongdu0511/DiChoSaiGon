@@ -1,0 +1,53 @@
+﻿@model List<WebShop.ModelViews.CartItem>
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="harmic-offcanvas-body">
+        <div class="minicart-content">
+            <div class="minicart-heading">
+                <h4 class="mb-0">Giỏ hàng</h4>
+                <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
+            </div>
+            <ul class="minicart-list">
+                @foreach (var item in Model)
+                {
+                    string url = $"/{item.product.Alias}-{item.product.ProductId}.html";
+                    <li class="minicart-product">
+                        <a href="@url" class="product-item_img">
+                            <img class="img-full" src="~/images/products/@item.product.Thumb" alt="@item.product.ProductName">
+                        </a>
+                        <div class="product-item_content">
+                            <a class="product-item_title" href="@url">@item.product.ProductName</a>
+                            <span class="product-item_quantity">@item.amount x @item.product.Price.Value.ToString("#,##0") VNĐ</span>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="minicart-item_total">
+            <span>Tổng tiền</span>
+            <span class="ammount">@Model.Sum(x => x.TotalMoney).ToString("#,##0") VNĐ</span>
+        </div>
+        <div class="group-btn_wrap d-grid gap-2">
+            <a href="cart.html" class="btn btn-secondary btn-primary-hover">Xem giỏ hàng</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="/checkout.html" class="btn btn-secondary btn-primary-hover">Thanh toán</a>
+            }
+            else
+            {
+                <a href="/dang-nhap.html?returnUrl=/checkout.html" class="btn btn-secondary btn-primary-hover">Thanh toán</a>
+            }
+        </div>
+    </div>
+}
+else
+{
+  <div class="harmic-offcanvas-body">
+        <div class="minicart-content">
+            <div class="minicart-heading">
+                <h4 class="mb-0">Giỏ hàng rỗng</h4>
+            </div>
+        </div>
+   </div>
+}
+

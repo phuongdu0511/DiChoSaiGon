@@ -1,0 +1,126 @@
+@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<WebShop.Models.TinDang>
+@{ int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Danh sách tin tức" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; }
+
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Danh sách tin tức : trang @CurrentPage</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Create"><i class="anticon anticon-plus-circle m-r-5"></i><span>Thêm tin</span></a>
+            </div>
+            <div class="col-lg-4 text-right">
+                
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tiêu đề</th>
+                        <th>Ngày tạo</th>
+                        <th>isHOT</th>
+                        <th>isNewFeed</th>
+                        <th>Trạng thái</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                    <tr>
+                        <td>@item.PostId</td>
+                        <td>@item.Title</td>
+                        <td>@item.CreatedDate</td>
+                        <td>
+                            @if (item.Published == true)
+                            {
+
+
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>Public</div>
+                    </div> }
+                else
+                {
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>Non-Public</div>
+                    </div>}
+
+
+
+                        </td>
+                        <td>
+                            @if (item.IsHot == true)
+                            {
+
+
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>Hot</div>
+                    </div> }
+                else
+                {
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>-</div>
+                    </div>}
+
+
+
+                        </td>
+
+                        <td>
+                            @if (item.IsNewfeed == true)
+                            {
+
+
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>IsNewFeed</div>
+                    </div> }
+                else
+                {
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>-</div>
+                    </div>}
+
+
+
+                        </td>
+
+                        <td>
+                            <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Details" asp-route-id="@item.PostId">Chi tiết</a>
+                            <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Edit" asp-route-id="@item.PostId">Sửa</a>
+                            <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Delete" asp-route-id="@item.PostId">Xóa</a>
+                        </td>
+                    </tr>
+}
+}
+
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Index" />
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

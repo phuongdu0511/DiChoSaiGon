@@ -1,0 +1,134 @@
+﻿@model WebShop.Models.TinDang
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string url = $"/tin-tuc/{Model.Alias}-{Model.PostId}.html";
+    List<TinDang> Baivietlienquan = ViewBag.Baivietlienquan;
+}
+<main class="main-content">
+    <div class="breadcrumb-area breadcrumb-height" data-bg-image="assets/images/breadcrumb/bg/1-1-1920x373.jpg">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-item">
+                        <h1 class="breadcrumb-heading">@Model.Title</h1>
+                        <ul>
+                            <li> 
+                                <a href="/">Trang chủ <i class="pe-7s-angle-right"></i></a>
+                            </li>
+                            <li>@Model.Title</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-area section-space-y-axis-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="blog-detail-item">
+                        <div class="blog-img">
+                            <img class="img-full" src="~/images/news/@Model.Thumb" alt="@Model.Title">
+                        </div>
+                        <div class="blog-content text-start pb-0">
+                            <div class="blog-meta text-dim-gray pb-3">
+                                <ul>
+                                    <li class="date"><i class="fa fa-calendar-o me-2"></i>May 21, 2021</li>
+                                    <li>
+                                        <span class="comments me-3">
+                                            <a href="javascript:void(0)">2 Comments</a>
+                                        </span>
+                                        <span class="link-share">
+                                            <a href="javascript:void(0)">Share</a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h5 class="title mb-4">
+                                <a href="@url">@Model.Title</a>
+                            </h5>
+                            <p class="short-desc mb-4 mb-7">@Model.Scontents</p>
+                            @Html.Raw(Model.Contents)
+                            <div class="tag-wtih-social">
+                                <div class="tag">
+                                    <span class="title text-primary">Tags:</span>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)">Furniture,</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Electronic,</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Fashion</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="social-link">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <i class="fa fa-pinterest-p"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <i class="fa fa-dribbble"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="feedback-area section-space-top-55">
+                                <h4 class="heading mb-1">Bài viết liên quan</h4>
+                                <hr />
+                                <div class="widgets-area mb-9">
+                                    <div class="widgets-item">
+                                        <div class="swiper-container widgets-list-slider style-2 swiper-container-multirow swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                                            <div class="swiper-wrapper" id="swiper-wrapper-62104b1dfbb1d3188" aria-live="polite" style="width: 288px; transform: translate3d(0px, 0px, 0px);">
+                                                @if (Baivietlienquan != null && Baivietlienquan.Count() > 0)
+                                                            {
+                                                                foreach (var item in Baivietlienquan)
+                                                                {
+                                                                    string _url = $"/tin-tuc/{item.Alias}-{item.PostId}.html";
+                                                                    <div class="swiper-slide" role="group" aria-label="3 / 3" style="margin-top: 25px; width: 263px; margin-right: 25px;">
+                                                            <div class="product-list-item">
+                                                                <div class="product-img img-zoom-effect">
+                                                                    <a href="@_url">
+                                                                        <img class="img-full" src="~/images/news/@item.Thumb" alt="@item.Title">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="product-content">
+                                                                    <h5 class="title mb-3">
+                                                                        <a href="@_url">@item.Title</a>
+                                                                    </h5>
+                                                                    <div class="blog-meta text-manatee pb-1">
+                                                                        <ul>
+                                                                            <li class="date">@item.CreatedDate</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

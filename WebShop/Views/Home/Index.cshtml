@@ -1,0 +1,294 @@
+﻿@model WebShop.ModelViews.HomeViewVM
+@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Product> allProduct = ViewBag.AllProducts;
+}
+
+<!-- Begin Slider Area -->
+<div class="slider-area">
+
+    <!-- Main Slider -->
+    <div class="swiper-container main-slider swiper-arrow with-bg_white">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide animation-style-01">
+                <div class="slide-inner bg-height" data-bg-image="/assets/images/slider/bg/1-1.jpg">
+                    <div class="parallax-img-wrap">
+                        <div class="chilly">
+                            <div class="scene fill">
+                                <div class="expand-width" data-depth="0.2">
+                                    <img src="/assets/images/slider/inner-img/ot.png" alt="Inner Image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="avocado">
+                            <div class="scene fill">
+                                <div class="expand-width" data-depth="0.5">
+                                    <img src="/assets/images/slider/inner-img/qua-bo.png" alt="Inner Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="parallax-with-content">
+                            <div class="slide-content">
+                                <span class="sub-title mb-3">Natural & Organic</span>
+                                <h2 class="title mb-9">Hân hạnh được phục vụ</h2>
+                                <div class="button-wrap">
+                                    <a class="btn btn-custom-size lg-size btn-primary btn-white-hover rounded-0" href="shop.html">Mua ngay</a>
+                                </div>
+                            </div>
+                            <div class="parallax-img-wrap">
+                                <div class="tomatoes">
+                                    <div class="scene fill">
+                                        <div class="expand-width" data-depth="0.5">
+                                            <img src="/assets/images/slider/inner-img/otchuong.png" alt="Inner Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide animation-style-01">
+                <div class="slide-inner bg-height" data-bg-image="/assets/images/slider/bg/1-1.jpg">
+                    <div class="parallax-img-wrap">
+                        <div class="chilly">
+                            <div class="scene fill">
+                                <div class="expand-width" data-depth="0.2">
+                                    <img src="/assets/images/slider/inner-img/ot.png" alt="Inner Image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="avocado">
+                            <div class="scene fill">
+                                <div class="expand-width" data-depth="0.5">
+                                    <img src="/assets/images/slider/inner-img/qua-bo.png" alt="Inner Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="parallax-with-content">
+                            <div class="slide-content">
+                                <span class="sub-title mb-3">Natural & Organic</span>
+                                <h2 class="title mb-9">Hân hạnh được phục vụ</h2>
+                                <div class="button-wrap">
+                                    <a class="btn btn-custom-size lg-size btn-primary btn-white-hover rounded-0" href="shop.html">Mua ngay</a>
+                                </div>
+                            </div>
+                            <div class="parallax-img-wrap">
+                                <div class="tomatoes">
+                                    <div class="scene fill">
+                                        <div class="expand-width" data-depth="0.5">
+                                            <img src="/assets/images/slider/inner-img/otchuongdo.png" alt="Inner Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination with-bg d-md-none"></div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+</div>
+<!-- Slider Area End Here -->
+<!-- Begin Shipping Area -->
+<div class="shipping-area section-space-top-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="shipping-item">
+                    <div class="shipping-img">
+                        <img src="/assets/images/shipping/icon/plane.png" alt="Shipping Icon">
+                    </div>
+                    <div class="shipping-content">
+                        <h5 class="title">Giao hàng miễn phí</h5>
+                        <p class="short-desc mb-0">Với đơn hàng từ 500k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-6 pt-md-0">
+                <div class="shipping-item">
+                    <div class="shipping-img">
+                        <img src="/assets/images/shipping/icon/earphones.png" alt="Shipping Icon">
+                    </div>
+                    <div class="shipping-content">
+                        <h5 class="title">Hỗ trợ 24/7</h5>
+                        <p class="short-desc mb-0">Hotline: <strong>0963102916</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-6 pt-lg-0">
+                <div class="shipping-item">
+                    <div class="shipping-img">
+                        <img src="/assets/images/shipping/icon/shield.png" alt="Shipping Icon">
+                    </div>
+                    <div class="shipping-content">
+                        <h5 class="title">Giờ làm việc</h5>
+                        <p class="short-desc mb-0">Từ 6h00 - 19h30 hàng ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Shipping Area End Here -->
+<!-- Begin Product Area -->
+<div class="product-area section-space-top-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav product-tab-nav pb-10" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="active" id="all-items-tab" data-bs-toggle="tab" href="#all-items" role="tab" aria-controls="all-items" aria-selected="true">
+                            <div class="product-tab-icon">
+                                <img src="/assets/images/product/icon/1.png" alt="Product Icon">
+                            </div>
+                            Tất cả sản phẩm
+                        </a>
+                    </li>
+                    @foreach (var item in Model.Products)
+                    {
+                        <li class="nav-item" role="presentation">
+                            <a id="fresh-fruits-tab" data-bs-toggle="tab" href="#@item.category.Alias" role="tab" aria-controls="fresh-fruits" aria-selected="false">
+                                <div class="product-tab-icon">
+                                    <img style="width:80%;height:auto" src="~/images/category/@item.category.Thumb" alt="@item.category.Title">
+                                </div>
+                                @item.category.CatName
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="all-items" role="tabpanel" aria-labelledby="all-items-tab">
+                        @await Html.PartialAsync("_ListProductPartialView", allProduct)
+                    </div>
+                    @foreach (var item in Model.Products)
+                    {
+                        <div class="tab-pane fade" id="@item.category.Alias" role="tabpanel" aria-labelledby="fresh-fruits-tab">
+                            @await Html.PartialAsync("_ListProductPartialView", item.lsProducts)
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product Area End Here -->
+
+
+<div class="banner-area banner-style-2 section-space-y-axis-100" data-bg-image="/assets/images/product/pngtree.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="banner-content">
+                    <div class="section-title">
+                        <span class="sub-title text-danger">Khuyến mãi đặc biệt</span>
+                        <h3 class="title font-size-40 mb-7 text-success">Giảm giá 20% các loại trong tháng 4</h3>
+                    </div>
+                    
+                    <div class="countdown-wrap with-dark-border">
+                        <div class="countdown item-4" data-countdown="2022/04/01" data-format="short">
+                            <div class="countdown__item me-3">
+                                <span class="countdown__time daysLeft"></span>
+                                <span class="countdown__text ">Ngày</span>
+                            </div>
+                            <div class="countdown__item me-3">
+                                <span class="countdown__time hoursLeft"></span>
+                                <span class="countdown__text ">Giờ</span>
+                            </div>
+                            <div class="countdown__item me-3">
+                                <span class="countdown__time minsLeft"></span>
+                                <span class="countdown__text ">Phút</span>
+                            </div>
+                            <div class="countdown__item">
+                                <span class="countdown__time secsLeft"></span>
+                                <span class="countdown__text">Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrap pt-10">
+                        <a class="btn btn-custom-size lg-size btn-primary btn-dark-hover rounded-0" href="shop.html">Mua hàng ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Begin Blog Area -->
+@if (Model.TinTucs != null && Model.TinTucs.Count() > 0)
+{
+    <div class="blog-area section-space-y-axis-100">
+        <div class="container">
+            <div class="section-title text-center pb-55">
+                
+                <h2 >Tin tức</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="swiper-container blog-slider">
+                        <div class="swiper-wrapper">
+                            @foreach (var item in Model.TinTucs)
+                            {
+                                string url = $"/tin-tuc/{item.Alias}-{item.PostId}.html";
+                                <div class="swiper-slide">
+                                    <div class="blog-item">
+                                        <div class="blog-img img-zoom-effect">
+                                            <a href="@url">
+                                                <img width="200" height="200" class="img-full" src="~/images/news/@item.Thumb" alt="@item.Title">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-meta text-dim-gray pb-3">
+                                                <ul>
+                                                    <li class="date"><i class="fa fa-calendar-o me-2"></i>@item.CreatedDate</li>
+                                                    <li>
+                                                        <span class="comments me-3">
+                                                            <a href="javascript:void(0)">2 Comments</a>
+                                                        </span>
+                                                        <span class="link-share">
+                                                            <a href="javascript:void(0)">Chia sẻ</a>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <h5 class="title mb-4">
+                                                <a href="@url">@item.Title</a>
+                                            </h5>
+                                            <p class="short-desc mb-5">@item.Scontents</p>
+                                            <div class="button-wrap">
+                                                <a class="btn btn-custom-size btn-dark btn-lg rounded-0" href="blog-detail-left-sidebar.html">Đọc thêm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/assets/js/main.js"></script>
